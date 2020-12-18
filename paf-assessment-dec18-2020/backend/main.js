@@ -17,10 +17,10 @@ const PORT = parseInt(process.argv[2]) || parseInt(process.env.PORT) || 3000;
 const pool = mysql.createPool({
     user: process.env.DB_USER,
     password: process.env.DB_PASS,
-    host: process.env.DB_HOST,
+    host: process.env.DB_HOST || 'localhost',
     database: process.env.DB_NAME,
     timezone: '+08:00',
-    port: 3306,
+    port: process.env.DB_PORT || 3306,
     connectionLimit: 5
 });
 
